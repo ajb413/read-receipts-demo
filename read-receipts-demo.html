@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Read Receipts Demo</title>
+    <title>Read Receipts Demo</title>
 </head>
 <body>
-	<div class="readReceiptDemo">
+    <div class="readReceiptDemo">
         <input id="readMessages" type="submit" value="I've read all the messages" />
         <br />
         <input id="msgText" type="text" />
@@ -16,7 +16,7 @@
 <script type="text/javascript">
     var pubnub, myLastMessage, theirLastMessage;
     var userId = PubNub.generateUUID();
-    var myChannel = "channel-5";
+    var myChannel = "channel";
     var receiptChannel = myChannel+"-receipts";
 
 
@@ -79,7 +79,7 @@
     }
 
     function initPubNub() {
-    	pubnub = new PubNub({
+        pubnub = new PubNub({
             "publishKey": "eric",
             "subscribeKey": "eric",
             "uuid": userId
@@ -101,11 +101,11 @@
 
         pubnub.addListener({
             "message": function (m) {
-             	if (m.channel == myChannel) {
-             		writeMessageHtml(m.message);
-             	} else if (m.channel == receiptChannel) {
-             		readMessageHtml(m.message);
-             	}
+                if (m.channel == myChannel) {
+                    writeMessageHtml(m.message);
+                } else if (m.channel == receiptChannel) {
+                    readMessageHtml(m.message);
+                }
             }
         });
         //write messages from the last 5 minutes to the screen
@@ -120,8 +120,6 @@
             });
         });
     }
-
-	
 
 </script>
 </html>
