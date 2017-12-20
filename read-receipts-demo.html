@@ -18,7 +18,7 @@
     <script type="text/javascript">
         var pubnub, myLastMessage, theirLastMessage;
         var userId = PubNub.generateUUID();
-        var myChannel = "channel-23rh2iu4tb3giru348gb394g";
+        var myChannel = "channel";
         var receiptChannel = myChannel+"-receipts";
 
         bindUiEvents();
@@ -93,8 +93,8 @@
 
         function initPubNub() {
             pubnub = new PubNub({
-                "publishKey": "eric",
-                "subscribeKey": "eric",
+                "publishKey": "MY_PUB_KEY",
+                "subscribeKey": "MY_SUB_KEY",
                 "uuid": userId
             });
 
